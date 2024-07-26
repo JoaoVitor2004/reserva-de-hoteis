@@ -1,0 +1,23 @@
+@import "./src/css/theme.css";
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+.background-banner {
+    background: url(./src/images/banners/banner-home.jpeg) no-repeat center center;
+    background-size: cover;
+}
+
+.background-banner-search {
+    width: 100%;
+    height: 80vh;
+    background:  url(./src/images/banners/banner-resultado.jpeg) no-repeat top;
+    background-size: cover;
+}
+
+.border-orange {
+    background: none;
+    border: 2px solid orange;
+}

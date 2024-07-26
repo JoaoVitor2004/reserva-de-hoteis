@@ -1,0 +1,55 @@
+@import "inputs.css";
+@import "./buttons.css";
+@import "./navbar.css";
+@import "./position.css";
+@import "carousel.css";
+@import url('https://fonts.googleapis.com/css2?family=Ruda:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg-orange: #f46a05;
+    --color-white: #fff;
+    --bg-orange-hover: #d85f08;
+    --bg-black: #000;
+    --bg-marrom-1: #757575;
+    --bg-marrom-2: #f4f4f4;
+    --bg-yellow: #fcb705;
+    --bg-roxo: #e9008c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: 'Ruda', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.bg-color {
+    color: var(--color-white);
+    background-color: var(--bg-roxo);
+}
+
+.line-blue {
+    display: block;
+    width: 200px;
+    max-width: 100%;
+    height: 4px;
+}
+
+.icon-star {
+    color: #fcb705;
+}

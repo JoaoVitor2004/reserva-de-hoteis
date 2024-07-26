@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de hotéis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./src/images/hoteis/icone de favorito.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container pt-1 pb-1">
+            <a class="navbar-brand fw-bold" href="./index.html">Reserva de hoteis</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor"
+                    class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg>
+            </button>
+            <div class="collapse navbar-collapse d-lg-flex justify-content-end w-100" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item d-block d-md-block d-lg-none pt-4">
+                        <!-- Esse li para aparecer no mobile -->
+                        <a href="./index.html" class="btn btn-primary rounded-0 border-0 w-100 mb-3">Home</a>
+                        <a href="./login.html" type="button" class="btn btn-primary w-100 rounded-0">Login</a>
+                    </li>
+                    <!-- Esse li para aparecer em telas maiores -->
+                    <li class="nav-item d-none d-md-none d-lg-block">
+                        <a href="./index.html" type="button" class="btn btn-primary rounded-0 border-0 w-100 d-block d-lg-none">Home</a>
+                        <a href="./login.html" type="button" class="btn btn-primary rounded-0 ps-5 pe-5">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="w-100 background-banner-search d-flex align-items-center">
+        <div class="container">
+            <div class="card rounded-1 border-0 p-1 pt-4 pb-4 p-lg-4 pb-md-0 pb-lg-0 shadow">
+                <div class="card-body">
+                    <form class="pb-lg-2" onsubmit="return false;">
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-lg-3 mb-3">
+                                <label for="localizacao" class="form-label fw-bold">Localização:</label>
+                                <input type="text" name="localizacao" id="localizacao" class="form-control border-1"
+                                    placeholder="Digite uma localização" value="Rio de janeiro">
+                            </div>
+                            <div class="col-12 col-mb-12 col-lg-2 mb-3">
+                                <label for="entrada" class="form-label fw-bold">Entrada:</label>
+                                <input type="date" name="entrada" id="entrada" class="form-control border-1" value="2024-07-10">
+                            </div>
+                            <div class="col-12 col-mb-12 col-lg-2 mb-3">
+                                <label for="saida" class="form-label fw-bold">Saida:</label>
+                                <input type="date" name="saida" id="saida" class="form-control border-1" value="2024-07-20">
+                            </div>
+                            <div class="col-12 col-mb-12 col-lg-3 mb-3">
+                                <label for="periodo" class="form-label fw-bold">Periodo:</label>
+                                <select name="periodo" id="periodo" class="form-select"
+                                    aria-label="Selecione o período">
+                                    <option value="">Selecione o período</option>
+                                    <option value="madrugada">Madrugada</option>
+                                    <option value="manha" selected>Manhã</option>
+                                    <option value="tarde">Tarde</option>
+                                    <option value="noite">Noite</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-2 d-lg-flex align-items-center">
+                                <a href="./pesquisa.html" class="btn btn-primary w-100 p-lg-2"
+                                    type="button">Pesquisar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main class="w-100 min-vh-100">
+        <div class="container pt-4 pb-5">
+            <div class="row">
+                <div class="d-none d-md-none d-lg-block col-lg-3">
+                    <div class="card h-100 rounded-0">
+                        <div class="card-body">
+
+                            <!-- Criação de filtros -->
+
+                            <div class="w-100 pb-4 mb-3 border-bottom">
+                                <div class="card-title d-flex align-items-baseline">
+                                    <h4 class="fs-5 fw-bold me-2">Promoções</h4>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" name="cancelamento" id="cancelamento" class="form-check-input" value="cancelamento">
+                                    <label for="cancelamento" class="form-check-label">Cancelamento grátis</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" name="reserva-imediato" id="reserva-imediato" class="form-check-input" value="reserva-imediato">
+                                    <label for="reserva-imediato" class="form-check-label">Reserva de imediato</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" name="ofertas-especiais" id="ofertas-especiais" class="form-check-input" value="ofertas-especiais">
+                                    <label for="ofertas-especiais" class="form-check-label">Ofertas especiais</label>
+                                </div>
+                            </div>
+
+                            <div class="w-100 pb-4 mb-4 border-bottom">
+                                <div class="card-title d-flex align-items-baseline">
+                                    <h4 class="fs-5 fw-bold me-2">Preços</h4>
+                                </div>
+                                <div class="form-check">
+                                    <label for="range" class="form-label">R$ 100,00 a 100,000,000</label>
+                                    <input type="range" name="range" id="range" class="form-range" min="0" max="5" step="0.5" id="range">
+                                </div>
+                            </div>
+
+                            <div class="w-100 pb-4 mb-4 border-bottom">
+                                <div class="card-title d-flex align-items-baseline">
+                                    <h4 class="fs-5 fw-bold me-2">Tipos de acomodações</h4>
+                                </div>
+                                <div class="fomr-check">
+                                    <input type="checkbox" name="hoteis" id="hoteis" class="form-check-input" value="hoteis">
+                                    <label for="hoteis" class="form-label">Hotéis</label>
+                                </div>
+                                <div class="fomr-check">
+                                    <input type="checkbox" name="pousadas" id="pousadas" class="form-check-input" value="hoteis">
+                                    <label for="pousadas" class="form-label">Pousadas</label>
+                                </div>
+                            </div>
+
+                            <div class="w-100 pb-4 mb-3 border-bottom">
+                                <div class="card-title d-flex align-items-baseline">
+                                    <h4 class="fs-5 fw-bold me-2">Serviços</h4>
+                                </div>
+                                <div class="fomr-check">
+                                    <input type="checkbox" name="Internet" id="Internet" class="form-check-input" value="Internet">
+                                    <label for="Internet" class="form-label">Internet</label>
+                                </div>
+                                <div class="fomr-check">
+                                    <input type="checkbox" name="cafe-manha" id="cafe-manha" class="form-check-input" value="cafe-manha">
+                                    <label for="cafe-manha" class="form-label">Café da manhã</label>
+                                </div>
+                                <div class="fomr-check">
+                                    <input type="checkbox" name="piscina" id="piscina" class="form-check-input" value="piscina">
+                                    <label for="piscina" class="form-label">Piscina</label>
+                                </div>
+                                <div class="fomr-check">
+                                    <input type="checkbox" id="campo-futebol" class="form-check-input" value="campo-futebol">
+                                    <label for="campo-futebol" class="form-label">Campo de futebol</label>
+                                </div>
+                                <div class="fomr-check">
+                                    <input type="checkbox" id="estacionamento" class="form-check-input" value="estacionamento">
+                                    <label for="estacionamento" class="form-label">Estacionamento</label>
+                                </div>
+                                <div class="fomr-check">
+                                    <input type="checkbox" id="praias" class="form-check-input" value="praias">
+                                    <label for="praias" class="form-label">Praias</label>
+                                </div>
+                            </div>
+                            <div class="w-100 pb-4 d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary pe-4 ps-4 pt-2 pb-2 border-0 rounded-0 w-100" disable>Aplicar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-9">
+                    <div class="alert alert-info alert-dismissible fade show rounded-0" role="alert">
+                        <span>
+                            <i class="fa fa-tag me-2" aria-hidden="true"></i>
+                            Itens abaixo em promoção
+                        </span>
+                        <button class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div class="card mb-3 rounded-0">
+                        <div class="row g-0 pe- me-0">
+                            <div class="col-md-4">
+                                <div class="position-relative">
+                                    <img src="./src/images/hoteis/hotel-1.jpeg" alt="hotél 1" class="card-img-default">
+                                    <span class="position-absolute bottom-0 right-0 bg-primary pe-2 ps-2 pt-1 pb-1 text-white">R$ 669,00</span>
+                                </div>
+                            </div>
+                            <div class="col-md-8 pt-3">
+                                <div class="card-body overflow-hidden p-0 m-0">
+                                    <h5 class="card-title mb-1 pe-3 ps-3">Hotél Califórnia</h5>
+                                    <p class="text-muted mb-1 ps-3 pe-3">Porto Seguro/BA</p>
+                                    <div class="stars pe-3 ps-3">
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="text-muted pt-3 pb-2 pe-3 ps-3">Com otimos espaços para quem procura algo luxuoso e confortável</p>
+                                    <div class="card-footer row border-0 p-2 m-0">
+                                        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-center gap-3 pt-1 pb-1">
+                                            <i class="fa-solid fa-utensils"></i>
+                                            Restaurante
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-center gap-3 pt-1 pb-1">
+                                            <i class="fa-solid fa-person-swimming"></i>
+                                            Piscina
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-center gap-3 pt-1 pb-1">
+                                            <i class="fa-solid fa-wifi"></i>
+                                            Wifi
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3 rounded-0">
+                        <div class="row g-0 pe- me-0">
+                            <div class="col-md-4">
+                                <div class="position-relative">
+                                    <img src="./src/images/hoteis/hotel-2.jpeg" alt="hotél 1" class="card-img-default">
+                                    <span class="position-absolute bottom-0 right-0 bg-primary pe-2 ps-2 pt-1 pb-1 text-white">R$ 700,00</span>
+                                </div>
+                            </div>
+                            <div class="col-md-8 pt-3">
+                                <div class="card-body overflow-hidden h-100 p-0 m-0">
+                                    <h5 class="card-title mb-1 pe-3 ps-3">Hotél Paris Germany</h5>
+                                    <p class="text-muted mb-1 ps-3 pe-3">Ilheus/BA</p>
+                                    <div class="stars pe-3 ps-3">
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="text-muted pt-3 pb-2 pe-3 ps-3">Com otimos espaços para quem procura algo luxuoso e confortável</p>
+                                    <div class="card-footer row border-0 p-2 m-0">
+                                        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-center gap-3 pt-1 pb-1">
+                                            <i class="fa-solid fa-utensils"></i>
+                                            Restaurante
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-center gap-3 pt-1 pb-1">
+                                            <i class="fa-solid fa-person-swimming"></i>
+                                            Piscina
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-center gap-3 pt-1 pb-1">
+                                            <i class="fa-solid fa-wifi"></i>
+                                            Wifi
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3 rounded-0">
+                        <div class="row g-0 pe- me-0">
+                            <div class="col-md-4">
+                                <div class="position-relative">
+                                    <img src="./src/images/hoteis/hotel-3.jpeg" alt="hotél 1" class="card-img-default">
+                                    <span class="position-absolute bottom-0 right-0 bg-warning pe-2 ps-2 pt-1 pb-1 text-white">R$ 400,00</span>
+                                </div>
+                            </div>
+                            <div class="col-md-8 pt-3">
+                                <div class="card-body overflow-hidden h-100 p-0 m-0">
+                                    <h5 class="card-title mb-1 pe-3 ps-3">Pousada atlântica</h5>
+                                    <p class="text-muted mb-1 ps-3 pe-3">Riode Janeiro/RJ</p>
+                                    <div class="stars pe-3 ps-3">
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                        <span class="star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                    </div>
+                                    <p class="text-muted pt-3 pb-2 pe-3 ps-3">Com otimos espaços para quem procura algo luxuoso e confortável</p>
+                                    <div class="card-footer row border-0 p-2 m-0">
+                                        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-center gap-3 pt-1 pb-1">
+                                            <i class="fa-solid fa-mug-saucer"></i>
+                                            Café da manhã
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-center gap-3 pt-1 pb-1">
+                                            <i class="fa-regular fa-futbol"></i>
+                                            Campo de futebol
+                                        </div>
+                                        <div class="col-12 col-md-12 col-lg-4 d-flex align-items-center gap-3 pt-1 pb-1">
+                                            <i class="fa-solid fa-wifi"></i>
+                                            Wifi
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-100 mb-5 bg-light pt-4">
+        <div class="container mb-5 p-4">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-4 mb-5">
+                    <h2 class="fs-4 text-transform mb-4">reserva de hotéis</h2>
+                    <p class="text-muted mb-4" style="line-height: 30px;">Somos uma empresa que nasceu no ano de 1998,
+                        cuja a
+                        missão é entrgar aos nossos clientes e parceiros os melhores lugares para ter um lazer e um
+                        descanso excelente e merecido.</p>
+                    <div class="w-100 d-flex gap-4 fs-5">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4 mb-5 ps-3 ps-lg-5">
+                    <h2 class="fs-4 fw-bold mb-4">Minha conta</h2>
+                    <p class="text-muted mb-0">Minha contas</p>
+                    <p class="text-muted mb-0">Meu perfil</p>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4">
+                    <h2 class="fs-4 fw-bold mb-4">Informações adicionais</h2>
+                    <p class="text-muted mb-0">Termos e condições</p>
+                    <p class="text-muted mb-0">Politica de privacidade</p>
+                    <p class="text-muted mb-0">Central de ajuda</p>
+                    <p class="text-muted mb-0">Condições de uso</p>
+                </div>
+            </div>
+        </div>
+        <div class="w-100 bg-dark p-3 d-flex align-items-center justify-content-center">
+            <p class="fs-5 text-white">&copy; Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"
+        integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
